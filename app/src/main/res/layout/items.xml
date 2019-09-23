@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/list_row_items"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top"
+    android:background="@color/blue_grey_50"
+    android:orientation="horizontal"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <!-- Thumb Poster Movie -->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_poster_items"
+        android:layout_width="110dp"
+        android:layout_height="160dp"
+        app:cardCornerRadius="3dp"
+        app:cardElevation="5dp">
+
+        <ImageView
+            android:id="@+id/iv_poster_items"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:contentDescription="@null"
+            android:src="@drawable/dummy_poster" />
+
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/middle_view"
+        android:layout_width="@dimen/spacing_large"
+        android:layout_height="0dp"
+        android:layout_toEndOf="@+id/cv_poster_items" />
+
+    <!-- info movie -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/middle_view"
+        android:gravity="start|center"
+        android:orientation="vertical">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tv_title_items"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:text="@string/title_items"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textColor="@color/grey_80"
+            android:textStyle="bold" />
+
+        <!-- Genre -->
+        <TextView
+            android:id="@+id/tv_release_date_items"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:text="@string/release_date_items"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textColor="@color/grey_40" />
+
+        <!-- Short Storyline -->
+        <TextView
+            android:id="@+id/tv_overview_items"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:maxLines="3"
+            android:text="@string/lorem_ipsum"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/grey_80" />
+
+        <View
+            android:layout_width="75dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/spacing_middle"
+            android:background="@color/grey_40" />
+
+        <!-- Bottom Content -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_marginStart="@dimen/spacing_xsmall"
+                android:src="@drawable/ic_sentiment_very_satisfied"
+                android:contentDescription="@null"
+                android:tint="@color/grey_800" />
+
+            <TextView
+                android:id="@+id/tv_vote_average"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_medium"
+                android:layout_weight="1"
+                android:text="@string/vote_average"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="@color/grey_800" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:tint="@color/grey_800"
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/ic_movie" />
+
+            <TextView
+                android:id="@+id/tv_more_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_medium"
+                android:layout_weight="1"
+                android:text="@string/more_info"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="@color/grey_800" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">MooVie</string>
+
+    <!-- Action bar menu -->
+    <string name="search">search</string>
+    <string name="choose_language">Language</string>
+    <string name="search_hint">eg: movie title</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <!-- Movie Thumbnail Content -->
+    <string name="title_items">Title items</string>
+    <string name="release_date_items">release date</string>
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur ipsum in placerat molestie.  Fusce quis mauris a enim sollicitudin
+        \n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur ipsum in placerat molestie.  Fusce quis mauris a enim sollicitudin
+    </string>
+    <string name="vote_average">vote average</string>
+    <string name="more_info">More Info</string>
+    <string name="family">Family</string>
+    <string name="bookmarks">Bookmark</string>
+    <string name="tv_detail_title_storyline">Storyline</string>
+</resources>
