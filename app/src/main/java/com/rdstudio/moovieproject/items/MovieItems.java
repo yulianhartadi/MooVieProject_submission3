@@ -2,13 +2,15 @@ package com.rdstudio.moovieproject.items;
 
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
+
 public class MovieItems {
 
     private String movieTitle;
     private String moviePoster;
     private String movieReleaseDate;
     private String movieOverview;
-    private int movieVoteAverage;
+    private String movieVoteAverage;
 
     public String getMovieTitle() {
         return movieTitle;
@@ -42,11 +44,11 @@ public class MovieItems {
         this.movieOverview = movieOverview;
     }
 
-    public int getMovieVoteAverage() {
+    public String getMovieVoteAverage() {
         return movieVoteAverage;
     }
 
-    public void setMovieVoteAverage(int movieVoteAverage) {
+    public void setMovieVoteAverage(String movieVoteAverage) {
         this.movieVoteAverage = movieVoteAverage;
     }
 
@@ -54,14 +56,15 @@ public class MovieItems {
 
         try {
 
-            String movieTitle = object.getJSONObject("results").getString("title");
+            String movieTitle = object.getString("title");
             String moviePoster = object.getString("poster_path");
             String movieReleaseDate = object.getString("release_date");
             String movieOverview = object.getString("overview");
-            int movieVoteAverage = object.getInt("vote_average");
+            double voteAverage = object.getDouble("vote_average");
+            String movieVoteAverage = new DecimalFormat("##.##").format(voteAverage);
 
             this.movieTitle = movieTitle;
-            this.moviePoster = moviePoster;
+            this.moviePoster = "https://image.tmdb.org/t/p/w154/"+moviePoster;
             this.movieReleaseDate = movieReleaseDate;
             this.movieOverview = movieOverview;
             this.movieVoteAverage = movieVoteAverage;
