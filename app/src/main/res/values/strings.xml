@@ -19,4 +19,6 @@
     <string name="family">Family</string>
     <string name="bookmarks">Bookmark</string>
     <string name="tv_detail_title_storyline">Storyline</string>
+
+    <string name="error_message">Oops! Something went wrong,\nPlease try again later...</string>
 </resources>

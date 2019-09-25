@@ -1,18 +1,22 @@
 package com.rdstudio.moovieproject;
 
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkCapabilities;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,7 +42,7 @@ public class MoviesFragment extends Fragment {
 
     private MovieAdapter movieAdapter;
     private ProgressBar progressBar;
-
+    private TextView tvErrorMessage;
     private MovieModel movieModel;
     RecyclerView recyclerView;
 
@@ -64,19 +68,26 @@ public class MoviesFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_movie, container, false);
 
+        tvErrorMessage = rootView.findViewById(R.id.tv_error_message);
+        progressBar = rootView.findViewById(R.id.pb_progress);
+        recyclerView = rootView.findViewById(R.id.rv_fragment_movie);
+
         // adapter
         movieAdapter = new MovieAdapter(listMovieItems());
         movieAdapter.notifyDataSetChanged();
 
         // Recyclerview
-        recyclerView = rootView.findViewById(R.id.rv_fragment_movie);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
         /*recyclerView.setAdapter(movieAdapter);*/
 
+
+        // Error connection;
         return rootView;
 
     }
+
+    // Check for network connection
 
     /*private Observer<ArrayList<MovieItems>> getMovie = new Observer<ArrayList<MovieItems>>() {
         @Override
@@ -109,8 +120,10 @@ public class MoviesFragment extends Fragment {
                         MovieItems movieItems = new MovieItems(movie);
                         listMovieItems.add(movieItems);
                         Log.e("onSuccess: ", "Title" + movieItems.getMovieTitle());
-                        if (i==list.length()-1){
+                        if (i == list.length() - 1) {
                             recyclerView.setAdapter(movieAdapter);
+                            tvErrorMessage.setVisibility(View.GONE);
+                            progressBar.setVisibility(View.GONE);
                         }
                     }
 
@@ -127,5 +140,6 @@ public class MoviesFragment extends Fragment {
         });
         return listMovieItems;
     }
+
 
 }

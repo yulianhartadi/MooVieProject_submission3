@@ -37,10 +37,10 @@ public class MovieModel extends ViewModel {
 
                     String result = new String(responseBody);
                     JSONObject responseObject = new JSONObject(result);
-                    JSONArray listJsonArray = responseObject.getJSONArray("results");
+                    JSONArray list = responseObject.getJSONArray("results");
 
-                    for (int i = 0; i < listJsonArray.length(); i++) {
-                        JSONObject movie = listJsonArray.getJSONObject(i);
+                    for (int i = 0; i < list.length(); i++) {
+                        JSONObject movie = list.getJSONObject(i);
                         MovieItems movieItems = new MovieItems(movie);
                         listMovieItems.add(movieItems);
                     }

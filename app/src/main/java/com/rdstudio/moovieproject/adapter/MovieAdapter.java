@@ -1,5 +1,6 @@
 package com.rdstudio.moovieproject.adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,18 +19,17 @@ import java.util.ArrayList;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
-    private ArrayList<MovieItems> mData = new ArrayList<>();
+    private ArrayList<MovieItems> mData;
 
-    public void setData(ArrayList<MovieItems> items) {
-        mData.clear();
-        mData.addAll(items);
-        notifyDataSetChanged();
+    public MovieAdapter(ArrayList<MovieItems> listMovieItems) {
+        this.mData=listMovieItems;
     }
 
 
     @NonNull
     @Override
     public MovieViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        Log.e("onCreateViewHolder: ", "Jalan");
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.items, parent, false);
         return new MovieViewHolder(view);
     }
@@ -65,6 +65,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             tvTitleItems.setText(movieItems.getMovieTitle());
             tvReleaseItems.setText(movieItems.getMovieReleaseDate());
             tvOverviewItems.setText(movieItems.getMovieOverview());
+            Log.d("adapter : ", "mlaku");
             tvVoteAverage.setText(movieItems.getMovieVoteAverage());
 
             Glide.with(itemView.getContext())
